@@ -1,0 +1,27 @@
+body {
+  background-image: url(../../images/bg.jpg);
+  background-size: 100%;
+  /* opacity: .75 black; */
+}
+.nav-items {
+  margin-left: auto;
+}
+.nav-item {
+  color: white !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-left: 20px;
+}
+/* .nav-item:hover{
+    border-bottom: 3px solid #ff5b00;
+} */
+
+#nav-login {
+  background-image: linear-gradient(to right, #ff5b00, #ffa700);
+  padding: 7px 20px;
+  border-radius: 5px;
+}
+#nav-login:hover {
+  border: 2px solid #ff5b00;
+  background: transparent;
+}

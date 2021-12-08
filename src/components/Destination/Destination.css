@@ -1,0 +1,39 @@
+.input-box {
+  width: 300px;
+  padding: 20px;
+  /* border: 1px solid hsl(0, 100%, 50%); */
+  border-radius: 10px;
+  background-color: rgba(128, 128, 128, 0.192);
+}
+.input-box label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+}
+.input-box input {
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  /* border-bottom: 1px solid black; */
+}
+.input-box button {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background-image: linear-gradient(to right, #ff5b00, #ffa700);
+  color: white;
+  font-weight: 700;
+  padding: 10px 0px;
+}
+.input-box button:hover {
+  border: 2px solid #ff5b00;
+  background: transparent;
+  color: black;
+}
+.map-div img {
+  width: 600px;
+  height: 500px;
+}

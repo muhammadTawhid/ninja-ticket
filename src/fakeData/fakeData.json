@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "ticketValue": "One Time Ticket ",
+        "price": "100",
+        "img": "https://i.ibb.co/5sG742f/card1.png"
+    },
+    {
+        "id": "2",
+        "ticketValue": "One Day Pass ",
+        "price": "500",
+        "img": "https://i.ibb.co/tmsSD27/card2.png"
+    },
+    {
+        "id": "3",
+        "ticketValue": "Monthly Pass ",
+        "price": "1500",
+        "img": "https://i.ibb.co/FJZdZXy/card3.png"
+    },
+    {
+        "id": "4",
+        "ticketValue": "Annual Pass ",
+        "price": "5000",
+        "img": "https://i.ibb.co/xmR5M6p/card4.png"
+    }
+]

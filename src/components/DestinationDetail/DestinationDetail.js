@@ -1,13 +1,22 @@
 import "./DestinationDetail.css";
-import React from "react";
+import React, { useContext } from "react";
 import ticketLogo from "../../images/ticket.png";
+import { userContext } from "../../App";
 
 const DestinationDetail = () => {
+  const [signedInUser, setSignedInUser] = useContext(userContext);
+  const searchDestination = () => {
+    const newDestination = { ...signedInUser };
+    newDestination.pickFrom = "";
+    newDestination.pickTo = "";
+    setSignedInUser(newDestination);
+  };
+
   return (
     <div className="  details-div">
       <div className=" destination-div">
-        <h5>Mirpur</h5>
-        <h5>Dhanmondi</h5>
+        <h5>{signedInUser.pickFrom}</h5>
+        <h5>{signedInUser.pickTo}</h5>
       </div>
 
       <div className="d-flex align-items-center ticket-details ">
@@ -30,7 +39,7 @@ const DestinationDetail = () => {
         <p>Ticket 3</p>
         <p>$23</p>
       </div>
-      <button>Search Again</button>
+      <button onClick={searchDestination}>Search Again</button>
     </div>
   );
 };

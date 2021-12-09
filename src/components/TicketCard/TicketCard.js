@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React from "react";
 
 const TicketCard = (props) => {
@@ -26,19 +27,21 @@ const TicketCard = (props) => {
           <h1 className="card-title">
             <b>{ticketValue}</b>
           </h1>
-          <button
-            style={{
-              backgroundImage: "linear-gradient(to right, #ff5b00 , #ffa700)",
-              border: "none",
-              borderRadius: "30px",
-              padding: "10px 20px",
-              textTransform: "uppercase",
-              fontWeight: "bold",
-            }}
-            className=""
-          >
-            Buy Now
-          </button>
+          <Link to="/destination">
+            <button
+              style={{
+                backgroundImage: "linear-gradient(to right, #ff5b00 , #ffa700)",
+                border: "none",
+                borderRadius: "30px",
+                padding: "10px 20px",
+                textTransform: "uppercase",
+                fontWeight: "bold",
+              }}
+              className=""
+            >
+              Buy Now
+            </button>
+          </Link>
           <br />
           <h1
             style={{

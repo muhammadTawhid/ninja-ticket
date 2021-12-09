@@ -1,23 +1,21 @@
 .input-box {
   width: 300px;
   padding: 20px;
-  /* border: 1px solid hsl(0, 100%, 50%); */
   border-radius: 10px;
   background-color: rgba(128, 128, 128, 0.192);
 }
 .input-box label {
+  margin-top: 20px;
   display: block;
   font-size: 14px;
   font-weight: 600;
 }
 .input-box input {
-  margin-bottom: 20px;
   width: 100%;
   padding: 10px;
   outline: none;
   border: none;
   border-radius: 5px;
-  /* border-bottom: 1px solid black; */
 }
 .input-box button {
   width: 100%;

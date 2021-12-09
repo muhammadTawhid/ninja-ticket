@@ -1,9 +1,10 @@
 import "./Header.css";
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import Home from "../Home/Home";
+import { userContext } from "../../App";
 
 const Header = () => {
+  const [signedInUser] = useContext(userContext);
   return (
     <div>
       <nav className="container navbar navbar-expand-lg navbar-light bg-none">
@@ -39,9 +40,13 @@ const Header = () => {
               <Link to="/contact" className="nav-link nav-item">
                 Contact
               </Link>
-              <Link to="/login" className="nav-link nav-item" id="nav-login">
-                Login
-              </Link>
+              {signedInUser.name ? (
+                <p className="nav-link nav-item">{signedInUser.name}</p>
+              ) : (
+                <Link to="/login" className="nav-link nav-item" id="nav-login">
+                  Login
+                </Link>
+              )}
             </div>
           </div>
         </div>

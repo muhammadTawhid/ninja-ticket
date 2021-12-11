@@ -24,3 +24,11 @@ body {
   border: 2px solid #ff5b00;
   background: transparent;
 }
+.nav-signOut {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #ff5b00 !important;
+  border: none;
+  background: none;
+  background-color: none;
+}

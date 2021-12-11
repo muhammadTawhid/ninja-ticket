@@ -11,13 +11,14 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
+  FacebookAuthProvider,
 } from "firebase/auth";
+import { useHistory, useLocation } from "react-router-dom";
 
 initializeApp(firebaseConfig);
 
 const Login = () => {
   const [signedInUser, setSignedInUser] = useContext(userContext);
-  console.log(signedInUser, "signedInuser");
 
   const [newUser, setNewUser] = useState(false);
   const {
@@ -31,6 +32,18 @@ const Login = () => {
   const password = useRef({});
   password.current = watch("password");
 
+  const initialState = {
+    signUpSuccess: "",
+    signUpError: "",
+    signInSuccess: "",
+    signInError: "",
+  };
+  const [signedInError, setSignedInError] = useState(initialState);
+
+  const history = useHistory();
+  const location = useLocation();
+  const { from } = location.state || { from: { pathname: "/" } };
+
   //   handle email sign up
   const onSignUpDetailSubmit = (data) => {
     console.log(data, "sign up");
@@ -41,15 +54,17 @@ const Login = () => {
           handleUpdateUserInfo(data.name);
           const user = userCredential.user;
           setUserInfo(user);
-          // const newSignedInUser = {...signedInUser};
-          // newSignedInUser.name = user.displayName;
-          // newSignedInUser.email = user.email;
-          // setSignedInUser(newSignedInUser);
+          const newSignUpError = { ...signedInError };
+          newSignUpError.signUpSuccess = "Sign Up Successful";
+          newSignUpError.signUpError = "";
+          setSignedInError(newSignUpError);
         })
         .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          // ..
+          console.log(error);
+          const newSignUpError = { ...signedInError };
+          newSignUpError.signUpError = "This email already in use";
+          newSignUpError.signUpSuccess = "";
+          setSignedInError(newSignUpError);
         });
     }
   };
@@ -63,12 +78,10 @@ const Login = () => {
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHVzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
     })
       .then(() => {
-        // Profile updated!
-        // ...
+        console.log("profile updated");
       })
       .catch((error) => {
-        // An error occurred
-        // ...
+        console.log(error);
       });
   };
 
@@ -81,10 +94,18 @@ const Login = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           setUserInfo(user);
+          const newSignInMessage = { ...signedInError };
+          newSignInMessage.signInSuccess = "Login Successful";
+          newSignInMessage.signInError = "";
+          setSignedInError(newSignInMessage);
+          history.replace(from);
         })
         .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
+          console.log(error);
+          const newSignInMessage = { ...signedInError };
+          newSignInMessage.signInSuccess = "";
+          newSignInMessage.signInError = "Invalid Email or Password";
+          setSignedInError(newSignInMessage);
         });
     }
   };
@@ -95,25 +116,31 @@ const Login = () => {
     const auth = getAuth();
     signInWithPopup(auth, provider)
       .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
         const user = result.user;
         setUserInfo(user);
+        history.replace(from);
       })
       .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
+        console.log(error);
       });
   };
 
+  // handle facebook sign
+  const handleFacebookSign = () => {
+    const provider = new FacebookAuthProvider();
+    const auth = getAuth();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        setUserInfo(user);
+        history.replace(from);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  // user info updating on state
   const setUserInfo = (user) => {
     const newSignedInUser = { ...signedInUser };
     newSignedInUser.name = user.displayName;
@@ -187,7 +214,7 @@ const Login = () => {
             })}
             onKeyUp={() => trigger("password")}
             required
-            type="text"
+            type="password"
             placeholder="Password"
           />
           {errors.password && (
@@ -199,17 +226,34 @@ const Login = () => {
             {...register("confirmPassword", {
               required: "This field is required",
               validate: (value) =>
-                value === password.current || "this password don't match",
+                value === password.current || "This password don't match",
             })}
             onKeyUp={() => trigger("confirmPassword")}
             required
-            type="text"
+            type="password"
             placeholder="Confirm Password"
           />
           {errors.confirmPassword && (
             <small className="err-message">
               {errors.confirmPassword?.message}
             </small>
+          )}
+          <br />
+          {newUser && signedInError.signUpSuccess && (
+            <small className="text-success">
+              {signedInError.signUpSuccess}
+            </small>
+          )}
+          {newUser && signedInError.signUpError && (
+            <small className="err-message">{signedInError.signUpError}</small>
+          )}
+          {newUser === false && signedInError.signInSuccess && (
+            <small className="text-success">
+              {signedInError.signInSuccess}
+            </small>
+          )}
+          {newUser === false && signedInError.signInError && (
+            <small className="err-message">{signedInError.signInError}</small>
           )}
 
           {newUser ? (
@@ -241,7 +285,9 @@ const Login = () => {
           <button onClick={handleGoogleSignIn} className="form-input-btn">
             Continue with Google
           </button>
-          <button className="form-input-btn">Continue with Facebook</button>
+          <button onClick={handleFacebookSign} className="form-input-btn">
+            Continue with Facebook
+          </button>
         </div>
       </form>
     </div>

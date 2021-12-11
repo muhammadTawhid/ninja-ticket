@@ -1,6 +1,5 @@
 import "./Destination.css";
 import React, { useContext } from "react";
-import map from "../../images/image 6.png";
 import DestinationDetail from "../DestinationDetail/DestinationDetail";
 import { userContext } from "../../App";
 import { useForm } from "react-hook-form";
@@ -25,10 +24,7 @@ const Destination = () => {
   return (
     <div>
       <div className="container bg-white">
-        <div
-          style={{ width: "1100px" }}
-          className="  row p-5 justify-content-around"
-        >
+        <div className="p-5 my-5 rounded-3 row">
           <div className="col-md-4">
             {signedInUser.pickFrom === "" ? (
               <form onSubmit={(e) => e.preventDefault()} className="input-box">
@@ -70,8 +66,8 @@ const Destination = () => {
                 )}
                 <label htmlFor="">Date</label>
                 <input
+                  className="mb-3"
                   type="date"
-                  name=""
                   {...register("date", { required: "Select date" })}
                 />
                 {errors.date && (
@@ -86,8 +82,11 @@ const Destination = () => {
             )}
           </div>
           <div className="col-md-8 map-div">
-            <img src={map} alt="" />
-            {/* <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d58421.42156628421!2d90.32864412251462!3d23.77094515310323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x3755c0e96fce29dd%3A0x6ccd9e51aba9e64d!2sMirpur-1%2C%20Dhaka!3m2!1d23.795603699999997!2d90.3536548!4m5!1s0x3755b8b33cffc3fb%3A0x4a826f475fd312af!2sDhanmondi%2C%20Dhaka!3m2!1d23.746149499999998!2d90.3742307!5e0!3m2!1sen!2sbd!4v1638887342271!5m2!1sen!2sbd" style={{width:"600px", height:"450px"}} ></iframe> */}
+            <iframe
+              title="google map"
+              src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d58421.42156628421!2d90.32864412251462!3d23.77094515310323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x3755c0e96fce29dd%3A0x6ccd9e51aba9e64d!2sMirpur-1%2C%20Dhaka!3m2!1d23.795603699999997!2d90.3536548!4m5!1s0x3755b8b33cffc3fb%3A0x4a826f475fd312af!2sDhanmondi%2C%20Dhaka!3m2!1d23.746149499999998!2d90.3742307!5e0!3m2!1sen!2sbd!4v1638887342271!5m2!1sen!2sbd"
+              style={{ width: "675px", height: "500px" }}
+            ></iframe>
           </div>
         </div>
       </div>
@@ -97,4 +96,4 @@ const Destination = () => {
 
 export default Destination;
 
-// /^([A-Z][^0-9]*)$/  uppercase number not allowed
+// /^([A-Z][^0-9]*)$/  first letter uppercase and number not allowed

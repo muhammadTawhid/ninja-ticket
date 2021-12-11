@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 import { userContext } from "../../App";
 
 const Header = () => {
-  const [signedInUser] = useContext(userContext);
+  const [signedInUser, setSignedInUser] = useContext(userContext);
+  const signOut = () => {
+    setSignedInUser((signedInUser.email = ""));
+  };
   return (
     <div>
       <nav className="container navbar navbar-expand-lg navbar-light bg-none">
@@ -34,17 +37,22 @@ const Header = () => {
               >
                 Home
               </Link>
-              <Link to="/destination" className="nav-link nav-item">
+              <Link to="/destination/1" className="nav-link nav-item">
                 Destination
               </Link>
               <Link to="/contact" className="nav-link nav-item">
                 Contact
               </Link>
-              {signedInUser.name ? (
+              {signedInUser.email ? (
                 <p className="nav-link nav-item">{signedInUser.name}</p>
               ) : (
                 <Link to="/login" className="nav-link nav-item" id="nav-login">
                   Login
+                </Link>
+              )}
+              {signedInUser.email && (
+                <Link onClick={signOut} className="nav-link nav-signOut">
+                  Sign Out
                 </Link>
               )}
             </div>

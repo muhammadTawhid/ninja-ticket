@@ -4,6 +4,9 @@ import Home from "./components/Home/Home";
 import Header from "./components/Header/Header";
 import Destination from "./components/Destination/Destination";
 import Login from "./components/Login/Login";
+import NotFound from "./components/notFound/NotFound";
+import Contact from "./components/Contact/Contact";
+import PrivetRoute from "./components/PrivetRoute/PrivetRoute";
 
 export const userContext = createContext();
 
@@ -26,11 +29,23 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/destination">
+          <Route exact path="/home">
+            <Home />
+          </Route>
+          <PrivetRoute path="/destination/:id">
+            <Destination />
+          </PrivetRoute>
+          <Route path="/destination/1">
             <Destination />
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route path="*">
+            <NotFound />
           </Route>
         </Switch>
       </Router>

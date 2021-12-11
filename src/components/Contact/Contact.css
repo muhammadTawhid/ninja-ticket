@@ -1,0 +1,16 @@
+.contact-box {
+  width: 400px;
+  position: absolute;
+  top: 150px;
+  left: 450px;
+  padding-bottom: 20px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-weight: 700;
+  border-radius: 5px;
+  background-image: linear-gradient(to right, #ff5b00, #ffa700);
+}
+.icon {
+  font-size: 30px;
+  margin-top: 30px;
+}

@@ -14,7 +14,7 @@ const Header = () => {
         <div className="container-fluid">
           <Link to="/" className="navbar-brand text-white">
             <h2>
-              <b>Ninja Ticket</b>
+              <b>Ninja Ticket<span className="title-dot">.</span></b>
             </h2>
           </Link>
           <button
@@ -26,7 +26,7 @@ const Header = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-ico">|||</span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav nav-items">

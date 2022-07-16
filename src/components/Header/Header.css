@@ -49,7 +49,7 @@ button:focus:not(:focus-visible) {
 
 
 /* X-Small devices (portrait phones, less than 576px) */
-@media (min-width: 300.98px) and (max-width: 575.98px) {
+@media (min-width: 300.98px) and (max-width: 991.98px) {
   .navbar {
     background-color: rgba(0, 0, 0, 0.519);
   }

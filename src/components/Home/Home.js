@@ -11,7 +11,7 @@ const Home = () => {
 
   return (
     <div>
-      <div className="container">
+      <div className="container ticket-container">
         <div className="text-center">
           <h1
             style={{
@@ -24,7 +24,7 @@ const Home = () => {
             <b>SELECT YOUR TICKET</b>
           </h1>
         </div>
-        <div className="  row ">
+        <div className="row">
           {ticketCards.map((ticket) => (
             <TicketCard ticket={ticket} key={ticket.id} />
           ))}

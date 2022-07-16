@@ -2,11 +2,14 @@ import "./Header.css";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { userContext } from "../../App";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 const Header = () => {
   const [signedInUser, setSignedInUser] = useContext(userContext);
   const signOut = () => {
-    setSignedInUser((signedInUser.email = ""));
+    setSignedInUser("");
+    localStorage.removeItem("newLoggedInUser")
   };
   return (
     <div>
@@ -18,6 +21,7 @@ const Header = () => {
             </h2>
           </Link>
           <button
+            style={{ border: "1px solid white" }}
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -26,7 +30,9 @@ const Header = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-ico">|||</span>
+            <span className="navbar-toggler-ico">
+              <FontAwesomeIcon style={{ color: "white" }} icon={['fas', 'bars']} />
+            </span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav nav-items">

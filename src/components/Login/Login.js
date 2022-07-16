@@ -14,6 +14,9 @@ import {
   FacebookAuthProvider,
 } from "firebase/auth";
 import { useHistory, useLocation } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faTwitter, faFontAwesome } from '@fortawesome/free-brands-svg-icons';
+
 
 initializeApp(firebaseConfig);
 
@@ -146,7 +149,13 @@ const Login = () => {
     newSignedInUser.name = user.displayName;
     newSignedInUser.email = user.email;
     setSignedInUser(newSignedInUser);
+    handleSetNewLoggedInUser(newSignedInUser);
   };
+
+  // storing state to local storage
+  const handleSetNewLoggedInUser = (newLoggedInUser) => {
+    localStorage.setItem("newLoggedInUser", JSON.stringify(newLoggedInUser))
+  }
 
   return (
     <div>
@@ -283,10 +292,12 @@ const Login = () => {
             <span className="or-text">Or</span>
           </p>
           <button onClick={handleGoogleSignIn} className="form-input-btn">
+            <FontAwesomeIcon icon={['fab', 'google']} />
             Continue with Google
           </button>
           <button onClick={handleFacebookSign} className="form-input-btn">
-            Continue with Facebook
+            <span><FontAwesomeIcon icon={['fab', 'facebook']} />
+            Continue with Facebook</span>
           </button>
         </div>
       </form>

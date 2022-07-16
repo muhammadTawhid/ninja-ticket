@@ -1,17 +1,20 @@
 .form-box {
   width: 400px;
-  position: absolute;
-  left: 35%;
+  /* position: absolute; */
+  /* left: 35%; */
   padding: 30px;
   border: 1px solid #ffa700;
   border-radius: 5px;
   background-color: white;
   text-align: center;
   font-weight: 700;
+  margin: 0 auto;
 }
-.form-box > small {
+
+.form-box>small {
   text-align: end !important;
 }
+
 .form-box input {
   display: block;
   margin: 30px 0px 0px 0px;
@@ -21,6 +24,7 @@
   border-bottom: 1px solid darkgray;
   padding: 5px 0px;
 }
+
 .form-input-btn {
   width: 100%;
   border: none;
@@ -31,26 +35,59 @@
   padding: 10px 0px;
   margin: 5px 0px;
 }
+
+.form-input-btn svg {
+  transform: translateX(-50px);
+}
+
 .err-message {
   text-align: end !important;
   color: red;
 }
+
 .form-input-btn:hover {
   border: 2px solid #ff5b00;
   background: transparent;
   color: black;
 }
+
 .toggle-btn {
   background: none;
   border: none;
   cursor: pointer;
   color: #ff5b00;
 }
+
 .or-edit {
   border-bottom: 1px solid darkgray;
   line-height: 0.4px;
 }
+
 .or-text {
   padding: 5px;
   background-color: white;
 }
+
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media (min-width: 300.98px) and (max-width: 575.98px) {
+  .form-box {
+    width: 90%;
+  }
+
+  .form-input-btn svg {
+    transform: translateX(-25px);
+  }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (min-width: 575.98px) and (max-width: 767.98px) {}
+
+/* Medium devices (tablets, less than 992px) */
+@media (min-width: 767.98px) and (max-width: 991.98px) {}
+
+/* Large devices (desktops, less than 1200px) */
+@media (min-width: 991.98px) and (max-width: 1199.98px) {}
+
+/* X-Large devices (large desktops, less than 1400px) */
+@media (min-width: 991.98px) and (max-width: 1399.98px), (min-width: 1399.98px) and (max-width: 2000px) {}

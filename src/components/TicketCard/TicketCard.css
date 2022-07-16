@@ -1,0 +1,82 @@
+.card {
+    background: transparent !important;
+    text-transform: uppercase;
+    position: relative;
+    margin: 2em 0;
+}
+
+.card-title {
+    font-size: 35px;
+}
+
+.card-text-div button {
+    background-image: linear-gradient(to right, #ff5b00, #ffa700);
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.card-price {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    margin-bottom: 0;
+    font-size: 3.5em;
+}
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media (min-width: 300.98px) and (max-width: 575.98px) {
+    .card {
+        margin: 1em 0;
+    }
+
+    .card-img {
+        height: 300px;
+    }
+
+    .card-price {
+        transform: translate(-50%, -20%);
+    }
+}
+
+@media (min-width: 400.98px) and (max-width: 575.98px) {
+    .card-img {
+        height: 320px;
+    }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (min-width: 575.98px) and (max-width: 767.98px) {
+    .card-price {
+        transform: translate(-50%, -20%);
+    }
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (min-width: 767.98px) and (max-width: 991.98px) {
+    .card-img {
+        height: 315px;
+    }
+
+    .ticket-container {
+        max-width: 95% !important;
+    }
+
+    .card-price {
+        transform: translate(-50%, -10%);
+    }
+}
+
+/* Large devices (desktops, less than 1200px) */
+@media (min-width: 991.98px) and (max-width: 1199.98px) {
+    .ticket-container {
+        max-width: 95% !important;
+    }
+
+    .card-price {
+        transform: translate(-50%, -20%);
+    }
+}

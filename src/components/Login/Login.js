@@ -160,7 +160,7 @@ const Login = () => {
   return (
     <div>
       <form onSubmit={(e) => e.preventDefault()}>
-        <div className="form-box">
+        <div className="form-box mt-5 mb-3">
           <h4>
             <b>{newUser ? "Create an account" : "Login"}</b>
           </h4>
@@ -297,7 +297,7 @@ const Login = () => {
           </button>
           <button onClick={handleFacebookSign} className="form-input-btn">
             <span><FontAwesomeIcon icon={['fab', 'facebook']} />
-            Continue with Facebook</span>
+              Continue with Facebook</span>
           </button>
         </div>
       </form>

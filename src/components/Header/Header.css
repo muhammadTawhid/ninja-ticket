@@ -1,6 +1,19 @@
 body {
   background-image: url(../../images/bg.jpg);
   background-size: 100%;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+body::after {
+  height: 100% !important;
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.705);
+  z-index: -1;
 }
 
 .nav-items {
@@ -13,10 +26,6 @@ body {
   text-transform: uppercase;
   margin-left: 20px;
 }
-
-/* .nav-item:hover{
-    border-bottom: 3px solid #ff5b00;
-} */
 
 #nav-login {
   background-image: linear-gradient(to right, #ff5b00, #ffa700);
@@ -43,17 +52,9 @@ body {
   color: #ff5b00;
 }
 
-button:focus:not(:focus-visible) {
-  outline: -1 !important;
-}
-
 
 /* X-Small devices (portrait phones, less than 576px) */
 @media (min-width: 300.98px) and (max-width: 991.98px) {
-  .navbar {
-    /* background-color: rgba(0, 0, 0, 0.519); */
-  }
-
   .navbar-toggler {
     border: 1px solid white !important;
   }
@@ -75,7 +76,15 @@ button:focus:not(:focus-visible) {
 @media (min-width: 991.98px) and (max-width: 1199.98px) {}
 
 /* X-Large devices (large desktops, less than 1400px) */
-@media (min-width: 991.98px) and (max-width: 1399.98px), (min-width: 1399.98px) and (max-width: 2000px) {}
+@media (min-width: 991.98px) and (max-width: 2000px) {
+  body {
+    position: static;
+  }
+
+  body::after {
+    background-color: rgba(0, 0, 0, 0.404);
+  }
+}
 
 
 

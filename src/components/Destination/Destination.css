@@ -45,22 +45,24 @@
   border-radius: 10px;
 }
 
+.iframe-map {
+  border-radius: 5px;
+}
+
 /* X-Small and Small devices (portrait phones, less than 576px) */
 @media (min-width: 300.98px) and (max-width: 767.98px) {
+  .destination-container {
+    max-width: 90% !important;
+  }
+
   .destination-row {
-    padding: 0;
+    padding: 10px 0;
     flex-direction: column-reverse;
     margin-top: 2em !important;
   }
 
-  .map-div {
-    padding: 0 !important;
-  }
-
   .input-box, .details-div {
-    width: 90%;
-    /* margin: 1em 0 !important; */
-    margin: 1em auto;
+    margin: 1em auto 0 auto;
   }
 }
 

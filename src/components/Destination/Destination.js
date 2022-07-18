@@ -28,7 +28,7 @@ const Destination = () => {
       <div className="container destination-container bg-white">
         <div className="my-5 row destination-row">
           <div className="col-md-4 col-sm-">
-            {signedInUser.pickFrom === undefined ? (
+            {!signedInUser.pickFrom ? (
               <form onSubmit={(e) => e.preventDefault()} className="input-box">
                 <label htmlFor="">Pick from</label>
                 <input

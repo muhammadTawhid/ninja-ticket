@@ -27,7 +27,7 @@
   cursor: pointer;
 }
 
-#selectedTicket{
+#selectedTicket {
   background-color: #2e7d32;
   color: white;
 }
@@ -48,4 +48,3 @@
   border: none;
   color: rgb(255, 255, 255);
 }
-

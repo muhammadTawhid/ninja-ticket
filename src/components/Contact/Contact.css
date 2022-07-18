@@ -1,8 +1,6 @@
 .contact-box {
   width: 400px;
-  position: absolute;
-  top: 150px;
-  left: 450px;
+  margin: 5em auto 0 auto;
   padding-bottom: 20px;
   color: rgb(0, 0, 0);
   text-align: center;
@@ -10,7 +8,17 @@
   border-radius: 5px;
   background-image: linear-gradient(to right, #ff5b00, #ffa700);
 }
+
 .icon {
   font-size: 30px;
   margin-top: 30px;
+}
+
+
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media (min-width: 300.98px) and (max-width: 575.98px) {
+  .contact-box {
+    width: 90%;
+  }
 }

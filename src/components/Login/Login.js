@@ -15,8 +15,6 @@ import {
 } from "firebase/auth";
 import { useHistory, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faTwitter, faFontAwesome } from '@fortawesome/free-brands-svg-icons';
-
 
 initializeApp(firebaseConfig);
 
